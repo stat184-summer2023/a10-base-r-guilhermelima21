@@ -1,7 +1,7 @@
 ---
-title: "Fix the title"
-author: "Your Name Here"
-date: "Add the date"
+title: "a10-base-R"
+author: "Guilherme Lima"
+date: "06/23/23"
 output: 
     html_notebook
 ---
@@ -12,20 +12,20 @@ output:
 
 ```{r}
 data(iris)
-
+iris[10,5]
 ```
 
 
 #### Select the Species column in `iris` dataset and print the last 5 rows of that column
 ```{r}
-
+tail(iris$Species, 5)
 ```
 
 
 #### What is the average Sepal Length of flowers with Petal widths greater than 1? 
 
 ```{r}
-
+mean(iris$Sepal.Length[iris$Petal.Width]>1)
 
 ```
 
