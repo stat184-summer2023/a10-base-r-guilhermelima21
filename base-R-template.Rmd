@@ -72,7 +72,16 @@ Hint: First identify the pattern(s) in the table before you create the for loop.
 | 3 | 4 | 5 | 6 |  
 
 ```{r}
+Counting <- data.frame(matrix(nrow = 3, ncol = 4))
+colnames(Counting) <- c("V1", "V2", "V3", "V4")
+for (i in 1:3) {
+  for (j in 1:4) {
+    Counting[i, j] <- i + j - 1
+  }
+}
+Counting
 
+#3 loops is unnecessary
 ```
 
 ### Question 5: user defined functions
@@ -84,10 +93,11 @@ Hint: First identify the pattern(s) in the table before you create the for loop.
 ```{r}
 set.seed(184)
 plotNormal <- function(repitions, mean, sd){
-  
+  random_num <- rnorm(repitions, mean, sd)
+  hist(random_num, main = "Histogram from a Normal Distribution", xlab = "Numbers", ylab = "Frequency")
 }
 
-
+plotNormal(1000, 0, 1)
 ```
 
 ##### Extra Credit: 
@@ -100,7 +110,13 @@ Repeat parts 5A and 5B, and add
 Call the function to generate 1000 random normal numbers with mean 0 and standard deviation 1 and plot a histogram. Make the bins blue.
 
 ```{r}
+set.seed(184)
+plotNormal <- function(repitions, mean, sd){
+  random_num <- rnorm(repitions, mean, sd)
+  hist(random_num, main = paste("Histogram from a Normal(",mean, ",",sd,"), Distribution") , xlab = "Numbers", ylab = "Frequency", col = "blue")
+}
 
+plotNormal(1000, 0, 1)
 
 
 ```
